@@ -1,0 +1,4 @@
+rootProject.name = 'Project'
+
+include 'config'
+include 'registry'
