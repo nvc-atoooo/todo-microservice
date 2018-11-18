@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  config:
+    build: ./config
+    restart: always
+    ports:
+      - 8888:8888
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  registry:
+    build: ./registry
+    restart: always
+    depends_on:
+      - config
+    ports:
+      - 8761:8761
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  auth-service:
+    build: ./auth-service
+    restart: always
+    depends_on:
+      - config
+    ports:
+      - 5000:5000
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    
