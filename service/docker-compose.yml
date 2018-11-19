@@ -2,7 +2,7 @@ version: '3'
 
 services:
   config:
-    build: ./config
+    build: config
     restart: always
     ports:
       - 8888:8888
@@ -12,7 +12,7 @@ services:
         max-file: "10"
 
   registry:
-    build: ./registry
+    build: registry
     restart: always
     depends_on:
       - config
@@ -24,7 +24,7 @@ services:
         max-file: "10"
 
   auth-service:
-    build: ./auth-service
+    build: auth-service
     restart: always
     depends_on:
       - config

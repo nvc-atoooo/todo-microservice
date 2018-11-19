@@ -1,4 +1,4 @@
-rootProject.name = 'Project'
+rootProject.name = 'service'
 
 include 'config'
 include 'registry'

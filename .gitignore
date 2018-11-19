@@ -1,5 +1,6 @@
 **/.gradle
 **/build/
+**/bin/
 **/!gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###
@@ -24,3 +25,9 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### UI ###
+**/node_modules
+**/package-lock.json
+
+ui/client/build
