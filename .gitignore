@@ -31,3 +31,4 @@
 **/package-lock.json
 
 ui/client/build
+service/database/*
