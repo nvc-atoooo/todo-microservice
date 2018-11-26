@@ -3,9 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://auth-db/auth-db
-    username: postgres
+    url: jdbc:postgresql://auth-db/oauth2
+    username: POSTGRES_USER
     password: POSTGRES_PASSWORD
+    initialization-mode: always
   jpa:
     hibernate:
       ddl-auto: none

@@ -28,6 +28,7 @@ services:
     restart: always
     depends_on:
       - config
+      - auth-db
     ports:
       - 5000:5000
     logging:
@@ -38,7 +39,11 @@ services:
   auth-db:
     image: postgres
     restart: always
+    volumes:
+      - ./auth-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
+      POSTGRES_USER: POSTGRES_USER
       POSTGRES_PASSWORD: POSTGRES_PASSWORD
+      POSTGRES_DB: oauth2
