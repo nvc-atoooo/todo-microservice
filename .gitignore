@@ -26,6 +26,9 @@
 /nbdist/
 /.nb-gradle/
 
+### VS Code ###
+.vscode
+
 ### UI ###
 **/node_modules
 **/package-lock.json
