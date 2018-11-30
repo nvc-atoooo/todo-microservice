@@ -16,7 +16,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements UserDetails {
 
     private static final long serialVersionUID = 1L;
@@ -59,5 +59,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
 		return true;
 	}
-
 }
