@@ -26,12 +26,12 @@ public class OAuth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
     private DataSource dataSource;
 
     @Bean
-    private TokenStore tokenStore() {
+    public TokenStore tokenStore() {
         return new JdbcTokenStore(dataSource);
     }
 
     @Bean
-    private JdbcClientDetailsService clientDetailsService() {
+    public JdbcClientDetailsService clientDetailsService() {
         return new JdbcClientDetailsService(dataSource);
     }
 
