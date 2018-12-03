@@ -23,6 +23,18 @@ services:
         max-size: "10m"
         max-file: "10"
 
+  gateway:
+    build: gateway
+    restart: always
+    depends_on:
+      - config
+    ports:
+      - 80:8080
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
   auth-service:
     build: auth-service
     restart: always

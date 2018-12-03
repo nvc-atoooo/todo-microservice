@@ -1,0 +1,7 @@
+zuul:
+  routes:
+    auth-service:
+      path: /uaa/**
+      serviceId: auth-service
+      stripPrefix: false
+      sensitiveHeaders:

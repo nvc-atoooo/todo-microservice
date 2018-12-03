@@ -2,4 +2,5 @@ rootProject.name = 'service'
 
 include 'config'
 include 'registry'
+include 'gateway'
 include 'auth-service'
