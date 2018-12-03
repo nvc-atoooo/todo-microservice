@@ -58,6 +58,6 @@ create table oauth_approvals (
 drop table if exists users;
 CREATE TABLE users (
   id INTEGER PRIMARY KEY NOT NULL,
-  name VARCHAR(255) NOT NULL UNIQUE,
+  username VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL UNIQUE
 );

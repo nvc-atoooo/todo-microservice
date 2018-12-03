@@ -30,7 +30,10 @@ public class User implements UserDetails {
 
     private String password;
 
-    User(String username, String password) {
+    public User() {
+    }
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
