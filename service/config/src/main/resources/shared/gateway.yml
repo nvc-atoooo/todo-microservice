@@ -1,7 +1,11 @@
 zuul:
+  ignoredServices: '*'
   routes:
     auth-service:
       path: /uaa/**
       serviceId: auth-service
       stripPrefix: false
       sensitiveHeaders:
+
+server:
+  port: 4000
