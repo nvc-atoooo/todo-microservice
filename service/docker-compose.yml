@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  postgresql:
+    build: postgresql
+    restart: always
+    volumes:
+      - ./volumes/postgresql/data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: POSTGRES_USER
+      POSTGRES_PASSWORD: POSTGRES_PASSWORD
+
   config:
     build: config
     restart: always
@@ -47,14 +58,16 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-    
-  postgresql:
-    build: postgresql
+  
+  account-service:
+    build: account-service
     restart: always
-    volumes:
-      - ./volumes/postgresql/data:/var/lib/postgresql/data
+    depends_on:
+      - config
+      - postgresql
     ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: POSTGRES_USER
-      POSTGRES_PASSWORD: POSTGRES_PASSWORD
+      - 6000:6000
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"

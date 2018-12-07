@@ -5,6 +5,6 @@ WORKDIR /app
 
 ADD build/libs/*.jar /app.jar
 
-EXPOSE 4000
+EXPOSE 6000
 
 CMD ["java", "-Xmx200m", "-jar", "/app.jar"]
