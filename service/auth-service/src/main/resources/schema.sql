@@ -57,7 +57,19 @@ create table oauth_approvals (
 
 drop table if exists users;
 CREATE TABLE users (
-  id INTEGER PRIMARY KEY NOT NULL,
+  user_id INTEGER PRIMARY KEY NOT NULL,
   username VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL UNIQUE
+);
+
+drop table if exists authority;
+CREATE TABLE authority (
+  authority_id  INTEGER PRIMARY KEY NOT NULL,
+  authority VARCHAR(255)
+);
+
+drop table if exists users_authorities;
+CREATE TABLE users_authorities (
+  user_id INTEGER NOT NULL,
+  authority_id INTEGER NOT NULL
 );

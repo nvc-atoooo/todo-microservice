@@ -5,7 +5,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://postgresql/oauth2
+    url: jdbc:postgresql://auth-db/oauth2
     username: POSTGRES_USER
     password: POSTGRES_PASSWORD
     initialization-mode: always
