@@ -1,11 +1,4 @@
 server:
   servlet:
-    context-path: /account-service
+    context-path: /account
   port: 6000
-
-spring:
-  datasource:
-    url: jdbc:postgresql://postgresql/account
-    username: POSTGRES_USER
-    password: POSTGRES_PASSWORD
-    initialization-mode: always

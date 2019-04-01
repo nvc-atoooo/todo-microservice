@@ -59,7 +59,7 @@ drop table if exists users;
 CREATE TABLE users (
   user_id INTEGER PRIMARY KEY NOT NULL,
   username VARCHAR(255) NOT NULL UNIQUE,
-  password VARCHAR(255) NOT NULL UNIQUE
+  password VARCHAR(255) NOT NULL
 );
 
 drop table if exists authority;

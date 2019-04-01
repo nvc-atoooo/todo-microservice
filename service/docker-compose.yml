@@ -63,16 +63,15 @@ services:
       options:
         max-size: "10m"
         max-file: "10"
-
-  # account-service:
-  #   build: account-service
-  #   restart: always
-  #   depends_on:
-  #     - config
-  #     - postgresql
-  #   ports:
-  #     - 6000:6000
-  #   logging:
-  #     options:
-  #       max-size: "10m"
-  #       max-file: "10"
+  
+  account-service:
+    build: account-service
+    restart: always
+    depends_on:
+      - config
+    ports:
+      - 6000:6000
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"

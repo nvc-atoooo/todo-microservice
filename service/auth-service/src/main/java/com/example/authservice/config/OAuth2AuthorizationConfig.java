@@ -2,7 +2,7 @@ package com.example.authservice.config;
 
 import javax.sql.DataSource;
 
-import com.example.authservice.service.JdbcUserDetailsService;
+import com.example.authservice.service.security.JdbcUserDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

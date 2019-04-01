@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /uaa
+    context-path: /auth
   port: 5000
 
 spring:

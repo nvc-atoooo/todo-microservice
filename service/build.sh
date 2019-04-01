@@ -1,1 +1,1 @@
-./gradlew clean build -x test
+./gradlew clean build -x test --warning-mode all
