@@ -4,23 +4,16 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.*;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import lombok.Data;
 
 @Data
+@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails, Serializable {
@@ -28,14 +21,17 @@ public class User implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @SequenceGenerator(name = "users_user_id_seq", sequenceName = "users_user_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "users_user_id_seq")
+    @Column(name = "user_id", unique = true, nullable = false)
     private Long user_id;
 
     @Column(unique = true)
     private String username;
 
-    @NotEmpty
     private String password;
+
+    private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -44,11 +40,10 @@ public class User implements UserDetails, Serializable {
         inverseJoinColumns = @JoinColumn(name = "authority_id"))
     private List<Authority> authorities;
 
-    public User() {}
-
-    public User(String username, String password) {
+    public User(String username, String password, boolean enabled) {
         this.username = username;
         this.password = password;
+        this.enabled = enabled;
     }
 
     @Override
@@ -73,6 +68,6 @@ public class User implements UserDetails, Serializable {
 
     @Override
     public boolean isEnabled() {
-		return true;
+        return this.enabled;
 	}
 }

@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "account",
+      "type": "com.hoyu.accountservice.config.AccountServiceProperties",
+      "sourceType": "com.hoyu.accountservice.config.AccountServiceProperties"
+    },
+    {
+      "name": "account.path",
+      "type": "com.hoyu.accountservice.config.AccountServiceProperties$Path",
+      "sourceType": "com.hoyu.accountservice.config.AccountServiceProperties",
+      "sourceMethod": "getPath()"
+    },
+    {
+      "name": "account.verification",
+      "type": "com.hoyu.accountservice.config.AccountServiceProperties$Verification",
+      "sourceType": "com.hoyu.accountservice.config.AccountServiceProperties",
+      "sourceMethod": "getVerification()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

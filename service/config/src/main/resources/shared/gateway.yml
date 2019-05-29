@@ -12,5 +12,10 @@ zuul:
       serviceId: account-service
       stripPrefix: false
       sensitiveHeaders:
+
+ribbon:
+  ConnectTimeout: 20000
+  ReadTimeout: 20000
+
 server:
   port: 4000

@@ -1,0 +1,19 @@
+server:
+  servlet:
+    context-path: /auth
+  port: 5000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://auth-db/oauth2
+    username: POSTGRES_USER
+    password: POSTGRES_PASSWORD
+    initialization-mode: always
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: none

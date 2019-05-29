@@ -59,18 +59,39 @@ services:
       - auth-db
     ports:
       - 5000:5000
+    environment:
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n
     logging:
       options:
         max-size: "10m"
         max-file: "10"
-  
+
+  account-db:
+    image: postgres:11.1
+    restart: always
+    volumes:
+      - ./volumes/postgresql/account-db:/var/lib/postgresql/data
+    ports:
+      - 5437:5432
+    environment:
+      - POSTGRES_USER=POSTGRES_USER
+      - POSTGRES_PASSWORD=POSTGRES_PASSWORD
+      - POSTGRES_DB=account
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
   account-service:
     build: account-service
     restart: always
     depends_on:
       - config
+      - account-db
     ports:
       - 6000:6000
+    environment:
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=5005,server=y,suspend=n
     logging:
       options:
         max-size: "10m"

@@ -16,11 +16,13 @@ import lombok.Data;
 @Entity
 public class Authority implements GrantedAuthority, Serializable {
 
-    private static final long serialVersionUID = 1L;
+    public static final String ROLE_ADMIN = "ROLE_ADMIN";
+    public static final String ROLE_USER = "ROLE_USER";
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long authority_id;
+    @Column(name = "authority_id")
+    private Long id;
 
     @Column(unique = true)
     private String authority;

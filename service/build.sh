@@ -1,1 +1,2 @@
-./gradlew clean build -x test --warning-mode all
+#!/usr/bin/env bash
+./gradlew clean build

@@ -5,10 +5,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://auth-db/oauth2
+    url: jdbc:postgresql://localhost:5432/oauth2
     username: POSTGRES_USER
     password: POSTGRES_PASSWORD
     initialization-mode: always
   jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
     hibernate:
       ddl-auto: none
